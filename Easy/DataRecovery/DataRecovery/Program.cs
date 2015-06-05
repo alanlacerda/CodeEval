@@ -16,21 +16,21 @@ namespace DataRecovery
 
                 var sortedWords = new SortedList<int, string>();
                 int sum = 0;
-                int number;
+                int index;
 
                 for (int i = 0; i < words.Length; i++)
                 {
                     if (i < indexes.Length)
                     {
-                        number = int.Parse(indexes[i]);
-                        sum += number;
+                        index = int.Parse(indexes[i]);
+                        sum += index;
                     }
                     else
                     {
-                        number = (int)((i + 2) * ((i + 1) / 2.00) - sum);
+                        index = (int)((i + 2) * ((i + 1) / 2.00) - sum);
                     }
 
-                    sortedWords.Add(number, words[i]);
+                    sortedWords.Add(index, words[i]);
                 }
 
                 Console.WriteLine(string.Join(" ", sortedWords.Values));
