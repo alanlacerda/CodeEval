@@ -9,7 +9,12 @@ namespace ReverseWords
         {
             foreach(var line in File.ReadLines(args[0]))
             {
-                string[] words = line.TrimStart().Split(' ');
+                if (line.Length < 3)
+                {
+                    continue;
+                }
+                
+                string[] words = line.Split(' ');
 
                 if (words.Length > 0)
                 {

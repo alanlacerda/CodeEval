@@ -15,20 +15,23 @@ namespace StringPermutations
 
                 Console.WriteLine(string.Join(",", permutations));
             }
+        }
 
-            Console.Read();
+        static int EvaluateType(char c)
+        {
+            return char.IsDigit(c) ? -1 : char.IsUpper(c) ? 0 : 1;   
         }
 
         static int CompareTo(string left, string right)
         {
-            Func<char, int> evaluateType = c => char.IsDigit(c) ? -1 : char.IsUpper(c) ? 0 : 1;
-
-            var index = 0;
+            int index = 0;
+            int l;
+            int r;
 
             do
 	        {
-                var l = evaluateType(left[index]);
-                var r = evaluateType(right[index]);
+                l = EvaluateType(left[index]);
+                r = EvaluateType(right[index]);
             
                 if (l != r)
                 {
