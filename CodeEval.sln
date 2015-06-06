@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringPermutations", "Hard\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberPairs", "Medium\NumberPairs\NumberPairs.csproj", "{601FFC9E-887D-4FF0-BCE0-514E4415B932}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollerCoaster", "Easy\RollerCoaster\RollerCoaster.csproj", "{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{601FFC9E-887D-4FF0-BCE0-514E4415B932}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{601FFC9E-887D-4FF0-BCE0-514E4415B932}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{601FFC9E-887D-4FF0-BCE0-514E4415B932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{A49E87ED-C749-40E6-ADEA-2600261EDE64} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{AFFF2676-8687-4E9A-AE4A-AFAC9BC131DC} = {7A078519-F9A9-43D1-BE41-82D3CE0686FE}
 		{601FFC9E-887D-4FF0-BCE0-514E4415B932} = {D992D0AE-1EB0-42EE-A7B1-17DEBFFDC24A}
+		{7E6E9F2D-09F7-4D23-BFA5-E4CA233C5A9E} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 	EndGlobalSection
 EndGlobal
