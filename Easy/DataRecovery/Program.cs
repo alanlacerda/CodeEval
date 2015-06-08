@@ -10,11 +10,10 @@ namespace DataRecovery
         {
             foreach (string line in File.ReadLines(args[0]))
             {
-                string[] splittedLine = line.Split(';');
-                string[] words = splittedLine[0].Split(' ');
-                string[] indexes = splittedLine[1].Split(' ');
+                string[] words = CopyUntilDelimiter(line, ';').Split(' ');
+                string[] indexes = CopyUntilDelimiter(line, ';', true).Split(' ');
 
-                var sortedWords = new SortedList<int, string>();
+                var sortedWords = new SortedDictionary<int, string>();
                 int sum = 0;
                 int limit = words.Length;
 
@@ -42,6 +41,38 @@ namespace DataRecovery
 
                 Console.Write(Environment.NewLine);
             }
+        }
+
+        private static string CopyUntilDelimiter(string input, char delimiter, bool backwards = false)
+        {
+            string output = "";
+
+            if (backwards)
+            {
+                for (int i = input.Length - 1; i >= 0; --i)
+                {
+                    if (input[i] == delimiter)
+                    {
+                        return output;
+                    }
+
+                    output = input[i] + output;
+                }
+            }
+            else
+            {
+                foreach (char c in input)
+                {
+                    if (c == delimiter)
+                    {
+                        return output;
+                    }
+
+                    output = output + c;
+                }
+            }
+
+            return output;
         }
     }
 }
