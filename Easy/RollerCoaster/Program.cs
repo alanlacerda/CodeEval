@@ -14,35 +14,22 @@ namespace RollerCoaster
                     continue;
                 }
 
-                string[] words = line.Split(' ');
-
                 bool wasUpper = false;
-                int wordLimit = words.Length;
-
-                for (int wordIndex = 0; wordIndex < wordLimit; ++wordIndex)
+                    
+                foreach (string word in line.Split(' '))
                 {
-                    string word = words[wordIndex];
-                    int charlimit = word.Length;
-
-                    for (int charIndex = 0; charIndex < charlimit; ++charIndex)
+                    foreach (char character in word)
                     {
-                        char character = word[charIndex];
-
                         if (char.IsLetter(character))
                         {
-                            if (wasUpper)
-                            {
-                                character = char.ToLower(character);
-                                wasUpper = false;
-                            }
-                            else
-                            {
-                                character = char.ToUpper(character);
-                                wasUpper = true;
-                            }
-                        }
+                            Console.Write(wasUpper ? char.ToLower(character) : char.ToUpper(character));
 
-                        Console.Write(character);
+                            wasUpper = !wasUpper;
+                        }
+                        else
+                        {
+                            Console.Write(character);    
+                        }
                     }
 
                     Console.Write(" ");

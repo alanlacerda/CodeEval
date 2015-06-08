@@ -7,6 +7,8 @@ namespace ReverseWords
     {
         static void Main(string[] args)
         {
+            var before = GC.GetTotalMemory(false);
+            
             foreach(var line in File.ReadLines(args[0]))
             {
                 if (line.Length < 3)
@@ -15,16 +17,14 @@ namespace ReverseWords
                 }
                 
                 string[] words = line.Split(' ');
+                int limit = words.Length - 1;
 
-                if (words.Length > 0)
+                for (int i = limit; i >= 0; --i)
                 {
-                    for(int i = words.Length - 1; i >= 0; --i)
-                    {
-                        Console.Write(words[i] + " ");
-                    }
+                    Console.Write(words[i] + " ");
+                }
 
-                    Console.Write(Environment.NewLine);
-                }                
+                Console.Write(Environment.NewLine);
             }
         }
     }

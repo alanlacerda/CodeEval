@@ -9,18 +9,16 @@ namespace StringMask
         {
             foreach(string line in File.ReadLines(args[0]))
             {
-                string[] stringAndMask = line.Split(' ');
-                
-                for (int i = 0; i < stringAndMask[0].Length; i++)
+                int index = line.IndexOf(' ');
+
+                string word = line.Substring(0, index);
+                string mask = line.Substring(index + 1);
+
+                for (index = 0; index < word.Length; index++)
                 {
-                    char letter = stringAndMask[0][i];
-
-                    if (stringAndMask[1][i] == '1')
-                    {
-                        letter = char.ToUpper(letter);
-                    }
-
-                    Console.Write(letter);
+                    Console.Write(mask[index] == '1'
+                        ? char.ToUpper(word[index])
+                        : word[index]);
                 }
 
                 Console.Write(Environment.NewLine);
