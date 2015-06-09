@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterruptedBubbleSort", "Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwapNumbers", "Easy\SwapNumbers\SwapNumbers.csproj", "{04EAE8A1-6048-4D1F-A58A-445DC18F5D47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressedSequence", "Easy\CompressedSequence\CompressedSequence.csproj", "{2997D605-5BB2-4654-9B21-47AE53CABD84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{04EAE8A1-6048-4D1F-A58A-445DC18F5D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04EAE8A1-6048-4D1F-A58A-445DC18F5D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04EAE8A1-6048-4D1F-A58A-445DC18F5D47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2997D605-5BB2-4654-9B21-47AE53CABD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2997D605-5BB2-4654-9B21-47AE53CABD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2997D605-5BB2-4654-9B21-47AE53CABD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2997D605-5BB2-4654-9B21-47AE53CABD84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{B1EC4384-788C-4134-A413-5C956611F370} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{15FE78A1-9349-4870-86E4-6FBBA8937836} = {D992D0AE-1EB0-42EE-A7B1-17DEBFFDC24A}
 		{04EAE8A1-6048-4D1F-A58A-445DC18F5D47} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
+		{2997D605-5BB2-4654-9B21-47AE53CABD84} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 	EndGlobalSection
 EndGlobal

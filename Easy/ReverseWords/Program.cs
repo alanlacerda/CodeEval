@@ -7,8 +7,6 @@ namespace ReverseWords
     {
         static void Main(string[] args)
         {
-            var before = GC.GetTotalMemory(false);
-            
             foreach(var line in File.ReadLines(args[0]))
             {
                 if (line.Length < 3)
