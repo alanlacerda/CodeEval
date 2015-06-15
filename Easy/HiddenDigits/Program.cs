@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace HiddenDigits
 {
@@ -7,7 +6,7 @@ namespace HiddenDigits
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
                 bool found = false;
 
@@ -18,7 +17,7 @@ namespace HiddenDigits
                         Console.Write(character);
                         found = true;
                     }
-                    else if (character >= 'a' && character < 'k')
+                    else if (character >= 'a' && character <= 'j')
                     {
                         Console.Write(character - 'a');
                         found = true;
@@ -26,14 +25,10 @@ namespace HiddenDigits
                 }
 
                 if (!found)
-                {
-                    Console.Write("NONE");
-                }
+                    Console.Write("NONE");                
 
                 Console.Write(Environment.NewLine);
             }
-
-            Console.Read();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace InterruptedBubbleSort
 {
@@ -7,31 +6,24 @@ namespace InterruptedBubbleSort
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
+                int index = line.IndexOf('|');
+
                 int count;
-                int[] numbers;
+                int.TryParse(line.Substring(index + 1), out count);
+                var numbers = Array.ConvertAll(line.Substring(0, index - 1).Split(' '), int.Parse);
+                int limit = numbers.Length - 1;
 
+                if (count == 0 || limit < count)
                 {
-                    string[] splittedLine = line.Split('|');
-                    
-                    numbers = Array.ConvertAll(splittedLine[0].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries), int.Parse);
-
-                    int.TryParse(splittedLine[1], out count);
-                }
-
-                if (count == 0 || count > numbers.Length)
-                {
-                    WriteNumbersInline(numbers);
-
+                    Console.WriteLine(line.Substring(0, index - 1));
                     continue;
                 }
 
-                int limit = numbers.Length - 1;
-
                 while (count > 0)
                 {
-                    for (int leftIndex = 0; leftIndex < limit; leftIndex++)
+                    for (int leftIndex = 0; leftIndex < limit; ++leftIndex)
                     {
                         int left = numbers[leftIndex];
                         int right = numbers[leftIndex + 1];
@@ -43,21 +35,16 @@ namespace InterruptedBubbleSort
                         }
                     }
 
-                    count--;
+                    --count;
                 }
 
-                WriteNumbersInline(numbers);
-            }
-        }
+                for (int number = 0; number <= limit; ++number)
+                {
+                    Console.Write(numbers[number] + " ");
+                }
 
-        static void WriteNumbersInline(int[] numbers)
-        {
-            foreach (int number in numbers)
-            {
-                Console.Write(number + " ");
+                Console.Write(Environment.NewLine);
             }
-            
-            Console.Write(Environment.NewLine);
         }
     }
 }

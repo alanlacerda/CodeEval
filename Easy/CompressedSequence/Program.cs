@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace CompressedSequence
 {
@@ -7,19 +6,17 @@ namespace CompressedSequence
     {
         private static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
                 int count = 0;
                 string number = "";
 
                 foreach (string current in line.Split(' '))
                 {
-                    if (string.Equals(number, ""))
-                    {
+                    if (number == "")
                         number = current;
-                    }
 
-                    if (string.Equals(number, current))
+                    if (number == current)
                     {
                         ++count;
                     }

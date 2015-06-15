@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace RollerCoaster
 {
@@ -7,13 +6,8 @@ namespace RollerCoaster
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
-                if (line.Length == 0)
-                {
-                    continue;
-                }
-
                 bool wasUpper = false;
                     
                 foreach (string word in line.Split(' '))

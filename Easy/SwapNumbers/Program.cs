@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace SwapNumbers
 {
@@ -7,23 +6,17 @@ namespace SwapNumbers
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
-                string[] words = line.Split(' ');
-
-                foreach (string word in words)
+                foreach (string word in line.Split(' '))
                 {
                     char first = word[0];
                     char last = word[word.Length - 1];
 
-                    if (first == last)
-                    {
-                        Console.Write(word + ' '); 
-                    }
+                    if (first != last)
+                        Console.Write(last + word.Substring(1, word.Length - 2) + first + ' '); 
                     else
-                    {
-                        Console.Write(last + word.Substring(1, word.Length - 2) + first + ' ');
-                    }
+                        Console.Write(word + ' '); 
                 }
 
                 Console.Write(Environment.NewLine);

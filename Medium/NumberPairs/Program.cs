@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace NumberPairs
 {
@@ -7,18 +6,14 @@ namespace NumberPairs
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
-                if (line.Length < 4)
-                {
+                if (line.Length == 0)
                     continue;
-                }
-
-                string[] splittedLine = line.Split(';');
-
-                int[] numbers = Array.ConvertAll(splittedLine[0].Split(','), int.Parse);
-                int expectedSum = int.Parse(splittedLine[1]);
-                int limit = numbers.Length;
+                
+                var numbers = Array.ConvertAll(line.Substring(0, line.IndexOf(';')).Split(','), int.Parse);
+                int expectedSum = int.Parse(line.Substring(line.IndexOf(';') + 1));
+                int limit = numbers.Length - 1;
 
                 string pairs = "NULL";
 
@@ -27,20 +22,18 @@ namespace NumberPairs
                     int left = numbers[current];
                     int wanted = expectedSum - left;
 
-                    for (int next = current + 1; next < limit; ++next)
+                    for (int last = limit; last > current; --last)
                     {
-                        int right = numbers[next];
+                        int right = numbers[last];
 
                         if (right == wanted)
                         {
                             if (pairs == "NULL")
-                            {
                                 pairs = left + "," + right;
-                            }
                             else
-                            {
                                 pairs = pairs + ";" + left + "," + right;
-                            }
+                            
+                            break;
                         }
                     }
                 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace StringPermutations
 {
@@ -8,7 +7,7 @@ namespace StringPermutations
     {
         static void Main(string[] args)
         {
-            foreach (string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
                 var permutations = Permute(line);
 
@@ -18,17 +17,11 @@ namespace StringPermutations
 
                 for (int index = 0; index < limit; ++index)
                 {
-                    if (index < limit - 1)
-                    {
-                        Console.Write(permutations[index] + ",");
-                    }
+                    if (index == limit - 1)
+                        Console.Write(permutations[index] + Environment.NewLine);
                     else
-                    {
-                        Console.Write(permutations[index]);
-                    }
+                        Console.Write(permutations[index] + ",");
                 }
-
-                Console.Write(Environment.NewLine);
             }
         }
 
@@ -64,9 +57,7 @@ namespace StringPermutations
                 int result = left[index] - right[index];
 
                 if (result != 0)
-                {
                     return result;
-                }
             }
 
             return 0;

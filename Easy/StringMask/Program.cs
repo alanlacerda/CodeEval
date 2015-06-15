@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace StringMask
 {
@@ -7,14 +6,14 @@ namespace StringMask
     {
         static void Main(string[] args)
         {
-            foreach(string line in File.ReadLines(args[0]))
+            foreach (string line in System.IO.File.ReadLines(args[0]))
             {
                 int index = line.IndexOf(' ');
 
                 string word = line.Substring(0, index);
                 string mask = line.Substring(index + 1);
 
-                for (index = 0; index < word.Length; index++)
+                for (index = 0; index < word.Length; ++index)
                 {
                     Console.Write(mask[index] == '1'
                         ? char.ToUpper(word[index])
