@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddNumbers", "Easy\OddNumbe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryBoard", "Easy\QueryBoard\QueryBoard.csproj", "{5954A814-E007-4302-BC31-F0E583EA92BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MthToLastElement", "Medium\MthToLastElement\MthToLastElement.csproj", "{EC3E96EA-AC34-464D-9F22-F6EA224C5340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{5954A814-E007-4302-BC31-F0E583EA92BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5954A814-E007-4302-BC31-F0E583EA92BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5954A814-E007-4302-BC31-F0E583EA92BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3E96EA-AC34-464D-9F22-F6EA224C5340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3E96EA-AC34-464D-9F22-F6EA224C5340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3E96EA-AC34-464D-9F22-F6EA224C5340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3E96EA-AC34-464D-9F22-F6EA224C5340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,5 +159,6 @@ Global
 		{7C32C463-0D56-4011-AA59-0833CA0FD3FC} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{C4BB513F-95AD-4BF3-A775-E83F14488E74} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{5954A814-E007-4302-BC31-F0E583EA92BF} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
+		{EC3E96EA-AC34-464D-9F22-F6EA224C5340} = {D992D0AE-1EB0-42EE-A7B1-17DEBFFDC24A}
 	EndGlobalSection
 EndGlobal
