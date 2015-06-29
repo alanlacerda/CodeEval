@@ -5,57 +5,54 @@ namespace GameOfLife
     static class Program
     {
         private const int GridDimension = 100;
+        private const int GridSize = GridDimension * GridDimension * sizeof(bool);
 
         static void Main(string[] args)
         {
-            var grid = new int[GridDimension, GridDimension];
-            int rowIndex = 0;
-
-            foreach (string line in System.IO.File.ReadLines(args[0]))
-            {
-                int columnIndex = 0;
-
-                foreach (char cell in line)
-                {
-                    grid[rowIndex, columnIndex] = cell == '*' ? 1 : 0;
-                    ++columnIndex;
-                }
-
-                ++rowIndex;
-            }
-
+            var grid = LoadFromFile(args[0]);
             grid.Iterate(10);
-
-            Console.Write(grid.ToStringGrid());
+            grid.Display();
         }
 
-        static string ToStringGrid(this int[,] grid)
+        static bool[,] LoadFromFile(string path)
         {
-            var outGrid = new System.Text.StringBuilder((GridDimension * GridDimension) + (GridDimension * 2));
+            var lines = System.IO.File.ReadAllLines(path);
+            var grid = new bool[GridDimension, GridDimension];
 
             for (int x = 0; x < GridDimension; ++x)
             {
                 for (int y = 0; y < GridDimension; ++y)
                 {
-                    outGrid.Append(grid[x, y].ToCell());
+                    grid[x, y] = lines[x][y] == '*';
                 }
-
-                outGrid.Append(Environment.NewLine);
             }
 
-            return outGrid.ToString();
+            return grid;
         }
 
-        static char ToCell(this int isAlive)
+        static void Display(this bool[,] grid)
         {
-            return isAlive == 1 ? '*' : '.';
+            for (int x = 0; x < GridDimension; ++x)
+            {
+                for (int y = 0; y < GridDimension; ++y)
+                {
+                    grid[x, y].Display();
+                }
+
+                Console.WriteLine(Environment.NewLine);
+            }
         }
 
-        static void Iterate(this int[,] grid, int iterationCount)
+        static void Display(this bool isAlive)
         {
-            var nextGrid = new int[GridDimension, GridDimension];
+            Console.Write(isAlive? '*' : '.');
+        }
 
-            for (int iteration = 0; iteration < iterationCount; ++iteration)
+        static void Iterate(this bool[,] grid, int count)
+        {
+            var nextGrid = new bool[GridDimension, GridDimension];
+
+            for (int iteration = 0; iteration < count; ++iteration)
             {
                 for (int x = 0; x < GridDimension; ++x)
                 {
@@ -65,27 +62,21 @@ namespace GameOfLife
                     }
                 }
 
-                Array.Copy(nextGrid, 0, grid, 0, GridDimension * GridDimension);
+                Buffer.BlockCopy(nextGrid, 0, grid, 0, GridSize);
             }
         }
 
-        static int NextState(this int[,] grid, int x, int y)
+        static bool NextState(this bool[,] grid, int x, int y)
         {
             int aliveNeighbors = grid.CountAliveNeighbors(x, y);
 
-            if (grid[x, y] == 0) 
-                return aliveNeighbors == 3 ? 1 : 0;
+            if (!grid[x, y])
+                return aliveNeighbors == 3;
 
-            if (aliveNeighbors < 2)
-                return 0;
-
-            if (aliveNeighbors < 4)
-                return 1;
-
-            return 0;
+            return aliveNeighbors >= 2 && aliveNeighbors < 4;
         }
 
-        static int CountAliveNeighbors(this int[,] grid, int x, int y)
+        static int CountAliveNeighbors(this bool[,] grid, int x, int y)
         {
             bool isLeftBound = x == 0;
             bool isRightBound = x == GridDimension - 1;
@@ -95,31 +86,31 @@ namespace GameOfLife
             int aliveNeighbors = 0;
 
             if (!isTopBound)
-                aliveNeighbors += grid[x, y - 1];
+                aliveNeighbors += grid[x, y - 1] ? 1 : 0;
 
             if (!isBottomBound)
-                aliveNeighbors += grid[x, y + 1];
+                aliveNeighbors += grid[x, y + 1] ? 1 : 0;
             
             if (!isRightBound)
             {
-                aliveNeighbors += grid[x + 1, y];
+                aliveNeighbors += grid[x + 1, y] ? 1 : 0;
                 
                 if (!isTopBound)
-                    aliveNeighbors += grid[x + 1, y - 1];
+                    aliveNeighbors += grid[x + 1, y - 1] ? 1 : 0;
 
                 if (!isBottomBound)
-                    aliveNeighbors += grid[x + 1, y + 1];
+                    aliveNeighbors += grid[x + 1, y + 1] ? 1 : 0;
             }
 
             if (!isLeftBound)
             {
-                aliveNeighbors += grid[x - 1, y];
+                aliveNeighbors += grid[x - 1, y] ? 1 : 0;
 
                 if (!isTopBound)
-                    aliveNeighbors += grid[x - 1, y - 1];
+                    aliveNeighbors += grid[x - 1, y - 1] ? 1 : 0;
 
                 if (!isBottomBound)
-                    aliveNeighbors += grid[x - 1, y + 1];
+                    aliveNeighbors += grid[x - 1, y + 1] ? 1 : 0;
             }
 
             return aliveNeighbors;
