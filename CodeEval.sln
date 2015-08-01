@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsAndArrows", "Easy\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongestLines", "Medium\LongestLines\LongestLines.csproj", "{705FD45C-D0F0-4692-81E7-F4C1D6957DFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassTriangle", "Medium\PassTriangle\PassTriangle.csproj", "{60C300B8-2107-414C-BEBA-ED3C63AD3445}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{705FD45C-D0F0-4692-81E7-F4C1D6957DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{705FD45C-D0F0-4692-81E7-F4C1D6957DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{705FD45C-D0F0-4692-81E7-F4C1D6957DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C300B8-2107-414C-BEBA-ED3C63AD3445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C300B8-2107-414C-BEBA-ED3C63AD3445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C300B8-2107-414C-BEBA-ED3C63AD3445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C300B8-2107-414C-BEBA-ED3C63AD3445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,5 +194,6 @@ Global
 		{BEAEA1D8-9C3F-4FFF-B36B-03996C401FE4} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{D789437E-A0EE-4393-A492-8B5A11099B06} = {D8B849B6-2A6C-4A1F-8E50-A06DECE20875}
 		{705FD45C-D0F0-4692-81E7-F4C1D6957DFC} = {D992D0AE-1EB0-42EE-A7B1-17DEBFFDC24A}
+		{60C300B8-2107-414C-BEBA-ED3C63AD3445} = {D992D0AE-1EB0-42EE-A7B1-17DEBFFDC24A}
 	EndGlobalSection
 EndGlobal
